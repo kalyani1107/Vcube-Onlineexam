@@ -42,11 +42,11 @@ def loginuser(request):
              return render(request,'login/login.html')
     
 def adminform(request):
-        context={}
+        contextname={}
         data=Registrationform.objects.all()
-        context['words']=data
+        contextname['words']=data
      
-        return render(request,'registration/adminpage.html',context)
+        return render(request,'registration/adminpage.html',contextname)
 
 
 def create_user(request):
