@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+*
+{
+ margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+.full-page
+ {
+  height: 100%;
+  width: 100%;
+  background-image:url('/static/images/2.jpg');
+  background-position: center;
+  background-size: full-page;
+  position: absolute;
+}          
+
+.form-box
+{
+  padding:10px 30px;
+  width:380px;
+	height:600px;
+	position:relative;
+	margin:2% auto;
+	background-color: #F5F5F5;
+	padding:10px;
+
+	border: 5px solid #5e5aa6;
+  border-radius: 20px;
+}
+.input-group-login
+{
+	top: 140px;
+	position:absolute;
+	width:280px;
+	transition:.5s;
+  margin:33px;
+}
+.logo {
+      
+      top:28px;
+      margin-left: 120px;
+      position:absolute;
+    }
+
+.sign-up{
+    top: 420px;
+	position:absolute;
+	width:280px;
+	transition:.5s;
+  margin:33px;
+
+}
+.check-box
+{
+	margin: 20px 10px 34px 0;
+}
+span
+{
+	color:#777;
+	font-size:12px;
+
+}
+
+.input-field
+{
+	width: 100%;
+	padding:10px 0;
+	margin:5px 0;
+	border-left:0;
+	border-top:0;
+	border-right:0;
+	border-bottom: 1px solid #999;
+	outline:none;
+	background: transparent;
+}
+.login{
+  top: 220px;
+	position:absolute;
+	width:280px;
+	transition:.5s;   
+}
+.submit-btn
+{
+	width: 85%;
+    top:350px;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background:#5e5aa6 ;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+#login
+{
+  padding:10px 30px;
+	left:50px;
+}
+#login input
+{
+	color:black;
+	font-size:15;
+}
+.social-media ul li{
+  display: inline-block;
+  cursor: pointer;
+  margin: 25px 15px;
+}
+
+.social-media img{
+  width: 30px;
+  height: 30px;
+}
+.social-media{
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.social-media ul{
+  list-style: none;
+}
+.label{
+    color:#777;
+	font-size:20px;
+}
+</style>
+      
+</head>
+<body>
+    <div class="full-page">
+
+    <div id='login-form'class='login-page'>
+        
+    <div class="form-box">
+    <a href="#logo"  class="logo"><img src="{% static 'images/vcube.jpg' %}" style="width:100px;height:100px;"></a>
+    
+    <form action="login" method="post" class='input-group-login' >
+    {% csrf_token %}
+    <input type=" text"  class='input-field' name="username" placeholder='Email Id' required><br><br>
+    <input type="password" class='input-field' name="pwd" placeholder='password' required><br><br>
+    <input type='checkbox'class='check-box'><span>Remember Password</span>
+    <div class = "login"> <input type="submit" value="login"  class='submit-btn' name="btn">
+    </div>
+    </form>
+  <div class = "sign-up">
+    <form action="signup" method="post">
+    {% csrf_token %}
+    <input type="submit" value="signup" class='submit-btn' name="btn2"> 
+    </form>   
+
+    <div class="social-media">
+        <ul>
+        <li><a href="www.facebook.com/VCubeSoftwareSolutions/"><img src="{% static 'images/facebook.png' %}"></li></a>
+        <li><img src="{% static 'images/twitter.png' %}"></li>
+        <li><img src="{% static 'images/linkedin.png' %}"></li>
+        <li><img src="{% static 'images/instagram.png' %}"></li>
+        </ul>
+        </div>
+ </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

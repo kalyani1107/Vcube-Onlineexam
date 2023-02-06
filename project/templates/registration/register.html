@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <title>Document</title>
+     <style>
+         *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .full-page
+        {
+          height: 150%;
+            width: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('/static/images/register image.jpg');
+            background-position: center;
+            background-size: full-page;
+            position: absolute;
+        }
+
+.form-box
+{
+  width:400px;
+	height:600px;
+	position:relative;
+	margin:2% auto;
+	background-color: #F5F5F5;
+	padding:10px;
+
+	border: 5px solid #5e5aa6;
+  border-radius: 20px;
+}
+.input-group-login
+{
+	top: 140px;
+	position:absolute;
+	width:280px;
+	transition:.5s;
+    margin:10px;
+}
+
+.sign-up{
+    top: 420px;
+	position:absolute;
+	width:280px;
+	transition:.5s;
+    margin:10px;
+
+}
+.check-box
+{
+	margin: 20px 10px 34px 0;
+}
+span
+{
+	color:#777;
+	font-size:12px;
+
+}
+
+.input-field
+{
+	width: 100%;
+	padding:10px 0;
+	margin:5px 0;
+	border-left:0;
+	border-top:0;
+	border-right:0;
+	border-bottom: 1px solid #999;
+	outline:none;
+	background: transparent;
+}
+
+
+
+#register input
+{
+	color:black;
+	font-size: 15;
+}
+
+.input-group-register
+{
+    top: 60px;
+	position:absolute;
+	width:341px;
+
+    margin:20px;
+}
+
+.submit-btn
+{
+	width: 85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin: auto;
+	background:#5e5aa6 ;
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+}
+
+
+.options
+{
+  width: 100%;
+  padding:10px 0;
+  margin:5px 0;
+  border-left:0;
+  border-top:0;
+  border-right:0;
+  border-bottom: 1px solid #999;
+	outline:none;
+	background: transparent;
+  color:#777;
+	font-size:15;
+
+}
+.title{
+    color:#5e5aa6;
+    
+    margin: 12px 32px;
+    top:10px;
+}
+     </style>
+
+</head>
+<body>
+    <div class="full-page">
+
+        <div id='register-form'class='register-page'>
+        
+        <div class="form-box">
+        <div class ="title"><h1>Registration Form</h1></div>
+    <form action="register"  method="POST" class='input-group-register' onsubmit="return validate()">
+    {% csrf_token %}
+    <input type='text' name="firstname" class='input-field'placeholder='Firstname ' required><br>
+	<input type='text'name="lastname" class='input-field'placeholder='Last Name ' required><br>
+	<input type='email' name="email" class='input-field'placeholder='Email Id' required><br>
+    
+     <select id="gnder" name="gender" class="options"><br>
+        <option disabled selected>--choose Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+    </select> <br>
+
+     <select id="course" name="course" class="options"><br><br>
+        <option disabled selected>--choose course</option>
+        <optgroup label="Programming languages">
+        <option>Python</option>
+        <option>Java</option>
+        <option>C++</option>
+        <option>C</option>
+        </optgroup>
+     </select> <br>
+
+    
+        <input type='Batch' name="batch" class='input-field'placeholder='Enter Batch Number' required><br>
+        
+        <input type='checkbox'class='check-box'><span>I agree to the terms and conditions</span><br>
+        <button type='submit'class='submit-btn'>Register</button>
+    </form>
+    
+
+    </div>
+    </div>
+    </div>
+    <script>
+        function validate()
+    {
+        let x,y;
+
+    
+        x=document.getElementById('psw').value;
+		y=document.getElementById('pswrepeat').value;
+        if (x==y)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    </script>
+		
+</body>
+</html>
